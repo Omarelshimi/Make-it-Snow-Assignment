@@ -6,3 +6,11 @@ body {
 canvas {
     border: 1px solid whitesmoke;
 }
+
+h1 {
+    color: whitesmoke;
+}
+
+h3 {
+    color: whitesmoke;
+}

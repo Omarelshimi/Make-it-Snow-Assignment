@@ -18,7 +18,7 @@ function draw() {
 }
 
 function moveSnowflake(snowflake) {
-    snowflake.y += 2;
+    snowflake.y += snowflake.speed
     if (snowflake.y > cnv.height) {
         snowflake.y = 0;
         snowflake.x = randomInt(0, cnv.width);
@@ -42,27 +42,18 @@ function newRandomSnowflake() {
     return {
         x: randomInt(0, cnv.width),
         y: randomInt(0, cnv.height),
+        speed: randomDec(1, 5),
         r: randomInt(1, 7)
+
     };
 }
 
-document.addEventListener("click", moreSnowflakes);
+document.addEventListener("keydown", moreSnowflakes);
 
 function moreSnowflakes(event) {
     if (event.keyCode === 39) {
-        newSnowflake();
+        snowflakes.push(newRandomSnowflake());
+    } else if (event.keyCode === 37) {
+        snowflakes.pop();
     }
-}
-
-function newSnowflake() {
-    snowflakes.push(newSnowflakes());
-}
-
-function newSnowflakes(initX, initY, initR, initColor) {
-    return {
-        x: initX,
-        y: initY,
-        r: initR,
-        color: initColor
-    };
 }
