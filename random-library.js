@@ -6,7 +6,7 @@ function randomDec(low, high) {
 }
 
 // Return a random integer between low (inclusive) and high (exclusive)
-function randInt(low, high) {
+function randomInt(low, high) {
     return Math.floor(Math.random() * (high - low) + low)
 }
 
